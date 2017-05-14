@@ -1,0 +1,27 @@
+# This is Git's per-user configuration file.
+
+[alias]
+	a = add
+	aa = add --all :/
+	alias = config --get-regexp ^alias\\.
+	b = branch
+	ci = commit
+	co = checkout
+	cob = checkout -b
+	d = diff --ignore-space-change
+	l = log --pretty=format:\"%C(green)%h%C(reset) %C(blue)%ad%C(reset) %s%C(yellow)%d%C(reset) %C(blue)[%an]%C(reset)\" --graph --date=short
+	pf = push --force
+	s = status
+	r = remote
+	rb = rebase
+[credential]
+	helper = cache
+[color]
+	ui = true
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = simple
+[user]
+	name = Raku Watari
+	email = rwatari@gmail.com

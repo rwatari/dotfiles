@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# colorized ls
+alias ls='ls -G'
+
+# git aliases (others in .gitconfig)
+alias gaa='git add -A'
+alias gcm='git commit -m'
+alias gcb='git checkout -b'
+
+# docker aliases
+alias dcr='docker-compose down; docker-compose up -d'
+alias dcd='docker-compose down'
+alias dcu='docker-compose up -d'
+alias dcp='docker-compose exec datastore psql -U butterai butter'
+alias dcl='docker-compose logs -f'
+alias dce='docker-compose exec'
+alias dc='docker-compose'
+
+dcteardown () {
+  dc stop $1
+  dc rm -f $1
+  dc build $1
+  dc up -d $1
+}
+
+# git pull on all subdirectories
+alias subgp='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
+
+# make `g` behave like `git status` with no args, or `git` with args
+g () {
+  if [ $# -eq 0 ]
+  then
+    git status
+  else
+    git "$@"
+  fi
+}
+__git_complete g _git
+
