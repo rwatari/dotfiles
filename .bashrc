@@ -1,4 +1,3 @@
-
 ### Git completion ###
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -26,9 +25,12 @@ shopt -s checkwinsize
 
 # look for commands in these places
 export PATH="$HOME/.bin:$PATH"
+export PATH="/usr/local/opt/python@2/bin:$PATH"
 
 # make vim the default text editor
 export EDITOR="vim"
+# prevent python from making .pyc files
+export PYTHONDONTWRITEBYTECODE=True
 
 # shortened prompt that includes git branch info
 RED='\[\e[0;31m\]'
@@ -47,3 +49,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # load any local configuration
 [[ -f "$HOME/.bashrc.local" ]] && source "$HOME/.bashrc.local"
+
+# pyenv/pyenv-virtualenv stuff
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+

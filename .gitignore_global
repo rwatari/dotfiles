@@ -1,0 +1,8 @@
+# vscode
+.vscode
+
+# mac specific
+.DS_Store
+
+# python environment
+.python-version

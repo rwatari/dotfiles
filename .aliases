@@ -7,9 +7,32 @@ alias ls='ls -G'
 alias gaa='git add -A'
 alias gcm='git commit -m'
 alias gcb='git checkout -b'
+alias gd='git checkout dev'
+alias gp='git push'
+alias gpo='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias gbd='git branch -d'
+
+# navigation
+alias ..='cd ..'
+alias ~='cd ~'
+alias navbutter='cd ~/Developer/butter'
+
+
+
+# vim quicknav
+alias va='vim ~/.aliases'
+
+# src bashrc
+alias src='. ~/.bashrc'
+
+# mkdir and cd
+mcd () {
+  mkdir -p "$1" && cd "$1"
+}
 
 # docker aliases
 alias dcr='docker-compose down; docker-compose up -d'
+alias dcre='docker-compose restart'
 alias dcd='docker-compose down'
 alias dcu='docker-compose up -d'
 alias dcp='docker-compose exec datastore psql -U butterai butter'
@@ -38,3 +61,8 @@ g () {
 }
 __git_complete g _git
 
+
+# utils
+current_time() {
+  echo $(date "+%Y%m%d%H%M%S")
+}
